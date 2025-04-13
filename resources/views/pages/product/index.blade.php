@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>LIST PRODUCT</h1>
+    <section class="mt-20">
+        {{ $products }}
+    </section>
 @endsection

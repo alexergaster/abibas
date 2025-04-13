@@ -19,8 +19,6 @@ class ProductController extends Controller
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
 
         $products = Product::filter($filter)->get();
-        dd($products);
-//        $products = Product::all();
         $brands = Brand::all();
         $categories = Category::all();
         $genders = Gender::all();

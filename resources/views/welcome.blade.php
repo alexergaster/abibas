@@ -11,7 +11,7 @@
 @section('content')
 
     <section class="h-screen w-screen overflow-hidden">
-        <a href="" class="inline-block w-full h-full relative">
+        <a href="{{ route('product.index') }}" class="inline-block w-full h-full relative">
             <img src="{{ asset('storage/images/misc/main_1.jpg') }}" alt="" class="w-full h-full">
             <div
                 class="absolute z-100 top-[50%] left-60 flex items-center justify-between px-4 py-2 bg-black text-white border border-black">
@@ -38,7 +38,7 @@
     </section>
 
     <section class="mt-20">
-        <a href="" class="inline-block w-full h-full relative">
+        <a href="{{ route('product.index', ['brand' => '3']) }}" class="inline-block w-full h-full relative">
             <video src="{{ asset('storage/images/misc/main_2.mp4') }}" class="w-full h-full" loop="loop"
                    autoplay="autoplay" playsinline muted="muted">
             </video>
@@ -60,7 +60,8 @@
             <h1 class="text-3xl font-bold mb-6 uppercase">
                 ADIZERO ARUKU
             </h1>
-            <a href="{{ route('product.index') }}" class="inline-block border-b border-black">Дивитись усі</a>
+            <a href="{{ route('product.index', ['brand' => '3']) }}" class="inline-block border-b border-black">Дивитись
+                усі</a>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
@@ -78,7 +79,7 @@
         </h1>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             @foreach($genders as $gender)
-                <a href="" class="relative">
+                <a href="{{ route('product.index', ['gender'=> $gender->id]) }}" class="relative">
                     <img alt="" class="w-full h-auto"
                          src="{{ asset('storage/images/product_type/' . $gender->images) }}"/>
                     <div class="absolute inset-0 flex items-center justify-center">
@@ -95,14 +96,15 @@
         </h1>
         <div class="flex flex-wrap justify-center mb-8">
             @foreach($categoriesList as $categoryList)
-                <a href="" class="border border-black px-4 py-2 m-2">
+                <a href="{{ route('product.index', ['gender'=> $categoryList->id]) }}"
+                   class="border border-black px-4 py-2 m-2">
                     {{ $categoryList->name }}
                 </a>
             @endforeach
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             @foreach($categoriesMain as $categoryMain)
-                <a href="" class="relative">
+                <a href="{{ route('product.index', ['gender'=> $categoryList->id]) }}" class="relative">
                     <img alt="" class="w-full h-auto"
                          src="{{ asset('storage/images/product_type/' . $categoryMain->images) }}"/>
                     <div class="absolute bottom-0 left-0 right-0 bg-white text-center py-2">

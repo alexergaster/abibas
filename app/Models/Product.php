@@ -13,7 +13,6 @@ class Product extends Model
 
     protected $table = 'products';
     protected $guarded = [];
-    public $timestamps = false;
 
     public function category(): belongsTo
     {

@@ -25,7 +25,8 @@ class FilterRequest extends FormRequest
             'gender' => 'nullable',
             'category' => 'nullable',
             'brand' => 'nullable',
-            'search' => 'nullable'
+            'search' => 'nullable',
+            'is_new' => 'nullable',
         ];
     }
 }

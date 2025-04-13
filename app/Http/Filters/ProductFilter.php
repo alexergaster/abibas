@@ -4,6 +4,7 @@
 namespace App\Http\Filters;
 
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 class ProductFilter extends AbstractFilter
@@ -12,6 +13,7 @@ class ProductFilter extends AbstractFilter
     public const GENDER = 'gender';
     public const CATEGORY = 'category';
     public const BRAND = 'brand';
+    public const IS_NEW = 'is_new';
 
 
     protected function getCallbacks(): array
@@ -21,7 +23,7 @@ class ProductFilter extends AbstractFilter
             self::GENDER => [$this, 'gender'],
             self::CATEGORY => [$this, 'category'],
             self::BRAND => [$this, 'brand'],
-
+            self::IS_NEW => [$this, 'is_new'],
         ];
     }
 
@@ -38,6 +40,10 @@ class ProductFilter extends AbstractFilter
     public function gender(Builder $builder, $value)
     {
         $builder->where('gender_id', $value);
+    }
+    public function is_new(Builder $builder)
+    {
+        $builder->where('created_at', '>=', Carbon::now()->subDays(10));
     }
 
     public function brand(Builder $builder, $value)
