@@ -22,7 +22,10 @@ class FilterRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'gender' => 'nullable',
+            'category' => 'nullable',
+            'brand' => 'nullable',
+            'search' => 'nullable'
         ];
     }
 }

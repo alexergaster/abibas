@@ -14,7 +14,7 @@
         <a href="" class="inline-block w-full h-full relative">
             <img src="{{ asset('storage/images/misc/main_1.jpg') }}" alt="" class="w-full h-full">
             <div
-                    class="absolute z-100 top-[50%] left-60 flex items-center justify-between px-4 py-2 bg-black text-white border border-black">
+                class="absolute z-100 top-[50%] left-60 flex items-center justify-between px-4 py-2 bg-black text-white border border-black">
                 КУПИТИ
                 <i class="fas fa-arrow-right ml-2"></i>
             </div>
@@ -26,7 +26,7 @@
             <h1 class="text-3xl font-bold mb-6">
                 ЩЕ -30% У КОШИКУ
             </h1>
-            <a href="#" class="inline-block border-b border-black">Дивитись усі</a>
+            <a href="{{ route('product.index') }}" class="inline-block border-b border-black">Дивитись усі</a>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
@@ -46,7 +46,7 @@
                 <span class="uppercase text-white bold text-4xl">ADIZERO ARUKU</span>
                 <span class="text-white">Створені для життя в русі.</span>
                 <div
-                        class="px-4 py-2 mt-4 bg-black text-white border border-black w-max">
+                    class="px-4 py-2 mt-4 bg-black text-white border border-black w-max">
                     КУПИТИ
                     <i class="fas fa-arrow-right ml-2"></i>
                 </div>
@@ -60,7 +60,7 @@
             <h1 class="text-3xl font-bold mb-6 uppercase">
                 ADIZERO ARUKU
             </h1>
-            <a href="#" class="inline-block border-b border-black">Дивитись усі</a>
+            <a href="{{ route('product.index') }}" class="inline-block border-b border-black">Дивитись усі</a>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">

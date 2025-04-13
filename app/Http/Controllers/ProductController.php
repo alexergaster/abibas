@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Filters\ProductFilter;
 use App\Http\Requests\Product\FilterRequest;
 use App\Models\Brand;
 use App\Models\Category;
@@ -14,12 +15,15 @@ class ProductController extends Controller
     public function index(FilterRequest $request): View
     {
         $data = $request->validated();
-        $products = Product::all();
+
+        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
+
+        $products = Product::filter($filter)->get();
+        dd($products);
+//        $products = Product::all();
         $brands = Brand::all();
         $categories = Category::all();
         $genders = Gender::all();
-
-
 
         return view('pages.product.index', compact('products', 'brands', 'categories', 'genders'));
     }
