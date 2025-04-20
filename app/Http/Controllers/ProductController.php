@@ -23,6 +23,6 @@ class ProductController extends Controller
         $categories = Category::all();
         $genders = Gender::all();
 
-        return view('pages.product.index', compact('products', 'brands', 'categories', 'genders'));
+        return view('pages.products.index', compact('products', 'brands', 'categories', 'genders'));
     }
 }

@@ -6,20 +6,20 @@
         </a>
     </div>
     <div class="flex space-x-4 text-sm font-semibold">
-        <a href="{{ route('product.index', ['gender' => '1']) }}" class="text-black {{ Request::is('/') ? 'border-b-2 border-black' : '' }}">
+        <a href="{{ route('products.index', ['gender' => '1']) }}" class="text-black {{ Request::is('/') ? 'border-b-2 border-black' : '' }}">
             ЧОЛОВІКИ
         </a>
 
-        <a class="text-black" href="{{ route('product.index', ['gender' => '2']) }}">
+        <a class="text-black" href="{{ route('products.index', ['gender' => '2']) }}">
             ЖІНКИ
         </a>
-        <a class="text-red-500" href="{{ route('product.index') }}">
+        <a class="text-red-500" href="{{ route('products.index') }}">
             SNEAKERS DAY -30%
         </a>
-        <a class="text-black" href="{{ route('product.index', ['gender' => '1']) }}">
+        <a class="text-black" href="{{ route('products.index', ['gender' => '1']) }}">
             ДІТИ
         </a>
-        <a class="text-black" href="{{ route('product.index', ['is_new' => '1']) }}">
+        <a class="text-black" href="{{ route('products.index', ['is_new' => '1']) }}">
             НОВИНКИ
         </a>
     </div>
