@@ -6,7 +6,7 @@
         </a>
     </div>
     <div class="flex space-x-4 text-sm font-semibold">
-        <a href="{{ route('products.index', ['gender' => '1']) }}" class="text-black {{ Request::is('/') ? 'border-b-2 border-black' : '' }}">
+        <a href="{{ route('products.index', ['gender' => '1']) }}" class="text-black">
             ЧОЛОВІКИ
         </a>
 
@@ -16,7 +16,7 @@
         <a class="text-red-500" href="{{ route('products.index') }}">
             SNEAKERS DAY -30%
         </a>
-        <a class="text-black" href="{{ route('products.index', ['gender' => '1']) }}">
+        <a class="text-black" href="{{ route('products.index', ['gender' => '3']) }}">
             ДІТИ
         </a>
         <a class="text-black" href="{{ route('products.index', ['is_new' => '1']) }}">
@@ -25,11 +25,11 @@
     </div>
     <div class="flex items-center space-x-4">
         <div class="relative">
-            <input class="border rounded text-sm p-2" placeholder="Пошук" type="text"/>
-            <a class="text-black absolute top-1.5 right-2" href="#">
+            <input class="border rounded text-sm p-2" placeholder="Пошук" type="text" id="search"/>
+            <button class="text-black absolute top-1.5 right-2" id="searchButton">
                 <i class="fas fa-search">
                 </i>
-            </a>
+            </button>
         </div>
         <a class="text-black" href="#">
             <i class="fas fa-heart">
@@ -53,5 +53,19 @@
                 header.classList.add('py-4');
             }
         });
+
+
+        const searchButton = document.getElementById('searchButton')
+
+
+        searchButton.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const searchInput = document.getElementById('search')
+
+            if (searchInput.value) {
+                window.location.href = `${window.location.origin}/products?search=${searchInput.value}`
+            }
+        })
     </script>
 @endsection

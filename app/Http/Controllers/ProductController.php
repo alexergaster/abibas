@@ -25,4 +25,13 @@ class ProductController extends Controller
 
         return view('pages.products.index', compact('products', 'brands', 'categories', 'genders'));
     }
+
+    public function show(Product $product): View
+    {
+        $productImages = $product->images;
+        $brand = $product->brand;
+        $category = $product->category;
+        $gender = $product->gender;
+        return view('pages.products.show', compact('product', 'productImages', 'brand', 'category', 'gender'));
+    }
 }

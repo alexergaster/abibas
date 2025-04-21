@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="mt-20 flex gap-16 container mx-auto h-screen">
+    <section class="my-20 flex gap-16 container mx-auto min-h-screen">
         <div class="sidebar p-6 w-[20%]">
             <x-filter-section title="Categories" :items="$categories" filter="category"/>
             <x-filter-section title="Genders" :items="$genders" filter="gender"/>

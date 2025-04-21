@@ -1,4 +1,4 @@
-<a href="#">
+<a href="{{ route('products.show', $item->id) }}">
     <div class="relative">
         <img alt="{{ $item->name }}" class="w-[300px] h-[200px] "
              src="{{ asset('storage/images/products/' . $item->image) }}"/>
