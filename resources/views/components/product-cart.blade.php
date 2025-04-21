@@ -2,7 +2,7 @@
     <div class="relative">
         <img alt="{{ $item->name }}" class="w-[300px] h-[200px] "
              src="{{ asset('storage/images/products/' . $item->image) }}"/>
-        <i class="fas fa-heart absolute top-2 right-2 text-white">
+        <i class="fas fa-heart absolute top-2 right-2 z-500" id="toLike" data-product="{{ $item }}">
         </i>
         <p class=" absolute bg-white bottom-0 left-0">
             {{ $item->price }} грн.
@@ -24,3 +24,4 @@
 
     </div>
 </a>
+

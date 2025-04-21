@@ -37,3 +37,7 @@ Route::prefix('products')->group(function () {
     Route::get('', [ProductController::class, 'index'])->name('products.index');
     Route::get('/{product}', [ProductController::class, 'show'])->name('products.show');
 });
+
+Route::get('/likes', function (){
+    return view('pages.likes');
+})->name('likes');

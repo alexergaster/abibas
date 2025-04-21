@@ -17,4 +17,42 @@
 </body>
 <script src="https://cdn.tailwindcss.com"></script>
 @yield('script')
+<script>
+    if (document.querySelectorAll('#toLike').length > 0) {
+        const toLikeButtons = document.querySelectorAll('#toLike');
+
+        toLikeButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const product = button.dataset.product;
+                let liked = JSON.parse(localStorage.getItem('likedProducts')) || [];
+
+                if (!liked.includes(product)) {
+                    liked.push(product);
+                    button.classList.add('text-red-500');
+                } else {
+                    liked = liked.filter(id => id !== product);
+                    button.classList.remove('text-red-500');
+                }
+
+                localStorage.setItem('likedProducts', JSON.stringify(liked));
+            });
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const liked = JSON.parse(localStorage.getItem('likedProducts')) || [];
+
+            document.querySelectorAll('#toLike').forEach(button => {
+                const product = button.dataset.product;
+                console.log(product)
+                if (liked.includes(product)) {
+                    button.classList.add('text-red-500');
+                }
+            });
+        });
+
+    }
+
+</script>
 </html>

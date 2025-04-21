@@ -62,22 +62,23 @@
 
             <div class="flex items-center gap-4 mt-10">
                 <button
+                    id="toLike"
                     class="flex items-center justify-center bg-black text-white font-montserrat font-bold text-sm tracking-widest uppercase px-6 py-3 relative"
                     style="letter-spacing: 0.15em;"
                 >
-                    ДОДАТИ В КОШИК
+                    ДОДАТИ В ОБРАНЕ
                     <i class="fas fa-arrow-right ml-3"></i>
                     <span
                         class="absolute top-0 right-0 h-full w-1 bg-white translate-x-1"
                         aria-hidden="true"
                     ></span>
                 </button>
-                <button
-                    aria-label="Add to favorites"
-                    class="border border-black w-12 h-12 flex items-center justify-center"
-                >
-                    <i class="far fa-heart text-black text-lg"></i>
-                </button>
+{{--                <button--}}
+{{--                    aria-label="Add to favorites"--}}
+{{--                    class="border border-black w-12 h-12 flex items-center justify-center"--}}
+{{--                >--}}
+{{--                    <i class="far fa-heart text-black text-lg"></i>--}}
+{{--                </button>--}}
             </div>
 
             <div class="mt-6 space-y-3 text-black text-sm font-normal max-w-md">

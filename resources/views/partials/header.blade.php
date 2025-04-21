@@ -31,14 +31,14 @@
                 </i>
             </button>
         </div>
-        <a class="text-black" href="#">
+        <a class="text-black" href="{{ route('likes') }}">
             <i class="fas fa-heart">
             </i>
         </a>
-        <a class="text-black" href="#">
-            <i class="fas fa-shopping-bag">
-            </i>
-        </a>
+{{--        <a class="text-black" href="#">--}}
+{{--            <i class="fas fa-shopping-bag">--}}
+{{--            </i>--}}
+{{--        </a>--}}
     </div>
 </header>
 
