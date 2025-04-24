@@ -83,7 +83,7 @@
                     <img alt="" class="w-full h-auto"
                          src="{{ asset('storage/images/product_type/' . $gender->images) }}"/>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-white text-xl font-bold">{{ $gender->gender_type }}</span>
+                        <span class="text-white text-xl font-bold">{{ $gender->name }}</span>
                     </div>
                 </a>
             @endforeach
