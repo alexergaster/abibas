@@ -32,6 +32,15 @@ class ProductController extends Controller
         $brand = $product->brand;
         $category = $product->category;
         $gender = $product->gender;
-        return view('pages.products.show', compact('product', 'productImages', 'brand', 'category', 'gender'));
+
+        $recommendedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->inRandomOrder()
+            ->take(6)
+            ->get();
+
+        return view('pages.products.show', compact(
+            'product', 'productImages', 'brand', 'category', 'gender', 'recommendedProducts'
+        ));
     }
 }

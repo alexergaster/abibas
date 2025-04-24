@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="container mx-auto p-4 my-24 flex flex-col md:flex-row md:space-x-6 min-h-screen">
+    <section class="container mx-auto p-4 mt-24 flex flex-col md:flex-row md:space-x-6">
         <main class="flex-1 flex flex-col">
             <div class="relative flex justify-center items-center bg-[#e6edea]">
                 <button aria-label="Previous"
@@ -97,6 +97,22 @@
             </div>
 
         </aside>
+    </section>
+
+    <section class="container mx-auto p-4 my-20">
+        <div class="flex items-center justify-between">
+            <h1 class="text-3xl font-bold mb-6">
+                Рекомендовані
+            </h1>
+            <a href="{{ route('products.index') }}" class="inline-block border-b border-black">Дивитись усі</a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
+            @foreach($recommendedProducts as $item)
+                @include('components.product-cart', ['item'=>$item])
+            @endforeach
+
+        </div>
     </section>
 @endsection
 
