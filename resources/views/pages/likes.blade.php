@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="mt-20 min-h-screen container mx-auto">
+    <section class="mt-32 min-h-screen container mx-auto">
         <h6 class="text-center text-2xl font-bold">Список відібраних товарів:</h6>
-        <div class="mt-20 grid grid-cols-1 sm:grid-cols-6 gap-6" id="products">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6" id="products">
 
         </div>
     </section>
@@ -22,29 +22,28 @@
 
                 const url = `${window.location.origin}/products/${item.id}`
                 productsContainer.innerHTML += `
-            <a href="${url}">
-                <div class="relative">
-                    <img alt="${item.name}" class="w-[300px] h-[200px]"
-                         src="${window.location.origin}/storage/images/products/${item.image}"/>
-                    <i class="fas fa-trash absolute top-2 right-2 z-500" id="removeLike" data-product="${item.id}">
-                    </i>
-                    <p class=" absolute bg-white bottom-0 left-0">
-                        ${item.price} грн.
-                    </p>
-                </div>
-                <div class="mt-2">
-                    <p class="text-sm">
-                        ${item.name}
-                        </p>
-                        <div class="flex items-center justify-between">
-                        <p> - </p>
-                        <p class="text-xs text-red-500">
-                            ЩЕ -30% У КОШИКУ
-                        </p>
-                    </div>
+            <a href="${url}" class="block max-w-[300px] mx-auto sm:mx-0">
+    <div class="relative">
+        <img alt="${item.name}" class="w-full h-[200px] object-cover rounded"
+             src="${window.location.origin}/storage/images/products/${item.image}"/>
+        <i class="fas fa-trash absolute top-2 right-2 z-500" id="removeLike" data-product="${item.id}"
+           id="removeLike" data-product="${item.id}">
+        </i>
+        <p class="absolute bg-white bottom-0 left-0 px-2 py-1 text-sm font-semibold">
+            ${item.price} грн.
+        </p>
+    </div>
+    <div class="mt-2">
+        <p class="text-sm truncate" title="${item.name}">
+            ${item.name}
+        </p>
+        <div class="flex items-center justify-between text-xs text-red-500 mt-1">
+            <p>-</p>
+            <p>ЩЕ -30% У КОШИКУ</p>
+        </div>
+    </div>
+</a>
 
-                </div>
-            </a>
             `;
             })
 

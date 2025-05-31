@@ -25,10 +25,10 @@ Route::get('/', function () {
     $brand = Brand::where('name', 'ADIZERO ARUKU')->first();
 
     $productsBrand = $brand
-        ? $brand->products()->with('brand')->take(6)->get()
+        ? $brand->products()->with('brand')->take(5)->get()
         : collect();
 
-    $products = Product::take(6)->get();
+    $products = Product::take(5)->get();
 
     return view('welcome', compact('genders', 'categoriesMain', 'categoriesList', 'productsBrand', 'products'));
 })->name('home');

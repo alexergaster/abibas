@@ -18,6 +18,38 @@
 <script src="https://cdn.tailwindcss.com"></script>
 @yield('script')
 <script>
+
+    if(document.querySelector('header')){
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+            }
+        });
+
+        const searchButton = document.getElementById('searchButton');
+        searchButton?.addEventListener('click', (event) => {
+            event.preventDefault();
+            const searchInput = document.getElementById('search');
+            if (searchInput?.value) {
+                window.location.href = `${window.location.origin}/products?search=${searchInput.value}`;
+            }
+        });
+
+        // Burger toggle
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        burgerBtn?.addEventListener('click', () => {
+            mainNav.classList.toggle('hidden');
+            mainNav.classList.toggle('flex');
+        });
+    }
+
+
     if (document.querySelectorAll('#toLike').length > 0) {
         const toLikeButtons = document.querySelectorAll('#toLike');
 

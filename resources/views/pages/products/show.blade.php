@@ -100,20 +100,22 @@
     </section>
 
     <section class="container mx-auto p-4 my-20">
-        <div class="flex items-center justify-between">
-            <h1 class="text-3xl font-bold mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <h1 class="text-2xl sm:text-3xl font-bold">
                 Рекомендовані
             </h1>
-            <a href="{{ route('products.index') }}" class="inline-block border-b border-black">Дивитись усі</a>
+            <a href="{{ route('products.index') }}" class="inline-block border-b border-black text-sm sm:text-base hover:text-gray-700 transition">
+                Дивитись усі
+            </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
             @foreach($recommendedProducts as $item)
                 @include('components.product-cart', ['item'=>$item])
             @endforeach
-
         </div>
     </section>
+
 @endsection
 
 @section('script')

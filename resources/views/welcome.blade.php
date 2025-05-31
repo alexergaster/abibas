@@ -10,50 +10,61 @@
 
 @section('content')
 
-    <section class="h-screen w-screen overflow-hidden">
-        <a href="{{ route('products.index') }}" class="inline-block w-full h-full relative">
-            <img src="{{ asset('storage/images/misc/main_1.jpg') }}" alt="" class="w-full h-full">
+    <section class="relative w-screen h-screen overflow-hidden">
+        <a href="{{ route('products.index') }}" class="block w-full h-full relative">
+            <img src="{{ asset('storage/images/misc/main_1.jpg') }}"
+                 alt=""
+                 class="absolute inset-0 w-full h-full object-cover"/>
             <div
-                class="absolute z-100 top-[50%] left-60 flex items-center justify-between px-4 py-2 bg-black text-white border border-black">
+                class="absolute z-10 top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 flex items-center bg-black text-white border border-black px-6 py-3 text-sm md:text-base hover:bg-white hover:text-black transition">
                 КУПИТИ
                 <i class="fas fa-arrow-right ml-2"></i>
             </div>
         </a>
     </section>
 
-    <section class="container mx-auto p-4 mt-20">
-        <div class="flex items-center justify-between">
-            <h1 class="text-3xl font-bold mb-6">
+
+    <section class="container mx-auto px-4 mt-20">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+            <h1 class="text-2xl sm:text-3xl font-bold">
                 ЩЕ -30% У КОШИКУ
             </h1>
-            <a href="{{ route('products.index') }}" class="inline-block border-b border-black">Дивитись усі</a>
+            <a href="{{ route('products.index') }}" class="inline-block border-b border-black text-sm">
+                Дивитись усі
+            </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             @foreach($products as $item)
-                @include('components.product-cart', ['item'=>$item])
+                @include('components.product-cart', ['item' => $item])
             @endforeach
-
         </div>
     </section>
 
-    <section class="mt-20">
-        <a href="{{ route('products.index', ['brand' => '3']) }}" class="inline-block w-full h-full relative">
-            <video src="{{ asset('storage/images/misc/main_2.mp4') }}" class="w-full h-full" loop="loop"
-                   autoplay="autoplay" playsinline muted="muted">
+    <section class="relative mt-20 w-full h-[60vh] sm:h-[70vh] md:h-[90vh] lg:h-screen overflow-hidden">
+        <a href="{{ route('products.index', ['brand' => '3']) }}" class="block w-full h-full relative">
+            <video
+                src="{{ asset('storage/images/misc/main_2.mp4') }}"
+                class="absolute inset-0 w-full h-full object-cover"
+                loop autoplay playsinline muted>
             </video>
-            <div class="absolute z-100 bottom-20 left-60 flex flex-col">
-                <span class="uppercase text-white bold text-4xl">ADIZERO ARUKU</span>
-                <span class="text-white">Створені для життя в русі.</span>
-                <div
-                    class="px-4 py-2 mt-4 bg-black text-white border border-black w-max">
+
+            <div class="absolute z-10 bottom-10 sm:bottom-16 left-6 sm:left-12 md:left-20 flex flex-col gap-2 sm:gap-3">
+            <span class="uppercase text-white font-bold text-xl sm:text-3xl md:text-4xl lg:text-5xl">
+                ADIZERO ARUKU
+            </span>
+                <span class="text-white text-sm sm:text-base md:text-lg">
+                Створені для життя в русі.
+            </span>
+                <div class="px-4 py-2 mt-2 sm:mt-4 bg-black text-white border border-black w-max text-sm sm:text-base hover:bg-white hover:text-black transition">
                     КУПИТИ
                     <i class="fas fa-arrow-right ml-2"></i>
                 </div>
             </div>
-
         </a>
     </section>
+
+
 
     <section class="container mx-auto p-4 mt-20">
         <div class="flex items-center justify-between">
@@ -64,7 +75,7 @@
                 усі</a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
 
             @foreach($productsBrand as $item)
                 @include('components.product-cart', ['item' => $item])
@@ -117,7 +128,7 @@
 
     <section class="py-20 mt-20 bg-gray-200">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
+            <div class="px-2">
                 <h1 class="text-lg font-bold uppercase mb-4">Історії, стиль та спортивний одяг abibas з 1949 року</h1>
                 <p class="text-sm leading-relaxed mb-4">
                     Спорт підтримує нас у формі. Тримає нас у свідомості. Об’єднує нас. Завдяки спорту ми маємо
@@ -133,7 +144,7 @@
                     інноваційні продукти, які змінюють правила гри. Створити зміни. І ми думаємо про вплив на наш світ.
                 </p>
             </div>
-            <div>
+            <div class="px-2">
                 <h1 class="text-lg font-bold uppercase mb-4">Тренувальний одяг для будь-якого виду спорту</h1>
                 <p class="text-sm leading-relaxed mb-4">
                     abibas розробляє одяг для спортсменів усіх видів та сумісно з ними. Творці, які люблять змінювати
